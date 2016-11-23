@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'homeproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'user_posts',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
         'USER': 'root',
-        'PASSWORD': 'tiger'
+        'PASSWORD': 'tiger',
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
 }
 
