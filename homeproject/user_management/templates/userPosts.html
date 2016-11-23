@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid" >
+    <div class="row in-height">
+    <div class="col-md-3 in-height base-color side-bar ">
+        <div class="user-dp">
+            <div class="dp-style">
+                <img class="img-circle " src={{ user.profilePic }} style="height:200px">
+            </div>
+        </div>
+        <div class="user-info">
+            <ul>
+                <li>{{ user.name }}</li>
+                <li>{{ user.email }}</li>
+{#                <li>fdjghdfjh</li>#}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-9 in-height">
+         <div class="row user-posts in-overflow">
+         <ul id="posts">
+             {% for post in posts %}
+                <div class="post" id="list">
+
+                    <li id="posts-list" class = "posts-list last-item">
+                        <p class="post-title">{{ post.postTitle }}</p>
+                        <p class="post-meta">{{ post.createdAt }}</p>
+                        <p class="post-content">{{ post.postDescription }}</p>
+                    </li>
+
+                </div>
+            {% endfor %}
+
+        </ul>
+        <p id="nav-point"></p>
+         </div>
+        <div class="row post-section">
+             <div class="post-title">
+                        Post Section
+                    </div>
+            <div class="post-add-section">
+                <form id="post-details" data-toggle="validator" role="form" method="post" >
+                     <input id="csrf" type="hidden" value="{{ csrf_token }}" name="csrfmiddlewaretoken" class="csrfToken">
+                    <div class="form-group">
+                        <input type="text" id="post-title"  class="form-control" placeholder="Post Title" required>
+                      </div>
+                      <div class="form-group" style="margin-top:10px">
+                            <textarea id= "post-des" class="notes" name="notes" cols="50" row="5" required style="width: 100%" ></textarea>
+                      </div>
+                      <input  type="button" value="submit" onClick="validatePostData()" class="btn add-post" id="submit-post"/>
+                </form>
+            </div>
+        </div>
+
+    </div>
+      <script type="application/javascript" src={% static 'js/app.js' %}></script>
+</div>
+    </div>
+
+
+{% endblock %}

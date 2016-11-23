@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+       <div class="row in-height">
+           <div class="col-md-4 in-height in-overflow">
+               <a class="twitter-timeline" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+           </div>
+           <div class="col-md-8 in-height" style="padding: 0 0">
+               <div class="header-block">
+
+               </div>
+
+               <div class="page-content">
+                   <div class="page-middle">
+                   <div class="title">
+                      SIGN IN WITH GOOGLE ACCOUNT
+                   </div>
+                   <div class="button-to-singin " >
+{#                       <img src="https://i.stack.imgur.com/XzoRm.png" width="300px" onclick="googleSignIn()">#}
+{##}
+{#                   </div>#}
+
+                       <div class="g-signin2 signin-google" data-onsuccess="onSignIn" data-theme="dark" data-width="250" data-height="60" data-longtitle="true">
+{#                            <div class="g-signin2" data-width="300" data-height="200" data-longtitle="true">#}
+                       </div>
+                     </div>
+                        <script>
+                          function onSignIn(googleUser) {
+                            // Useful data for your client-side scripts:
+                            var profile = googleUser.getBasicProfile();
+                            googleSignIn(googleUser.getAuthResponse().id_token)
+                          }
+                         </script>
+
+               </div>
+               </div>
+
+
+           </div>
+
+       </div>
+
+    </div>
+<div>
+</div>
+<a class="twitter-timeline" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{% endblock %}
