@@ -17,7 +17,7 @@ function validatePostData() {
         formData.append("postTitle", postTitle);
         formData.append("postDes", postDes);
         $.ajax({
-             url: "http://localhost:8000/add-post/",
+             url: "/add-post/",
              method: "POST",
              processData: false,
              data: formData,
@@ -48,14 +48,14 @@ function googleSignIn(token) {
         var data = {};
         data['token'] = token;
          $.ajax({
-             url: 'http://localhost:8000/google-login/',
+             url: '/google-login/',
              method: "POST",
              data: JSON.stringify(data),
              dataType: "json",
              contentType: "application/json",
              success: function(data){
                 console.log(data);
-                window.location.href = 'http://localhost:8000/get-posts/?id=' +data['userId']
+                window.location.href = '/get-posts/?id=' +data['userId']
              },
              error : function(){
                 alert("unable to login");
